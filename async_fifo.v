@@ -20,7 +20,7 @@ module async_fifo #(
     input  wire                  rst_r,
     input  wire                  rd_en,
     output reg  [DATA_WIDTH-1:0] data_out,
-    output reg                   data_valid,   // ⭐ NEW
+    output reg                   data_valid,   
     output wire                  empty
 );
 
@@ -109,13 +109,13 @@ module async_fifo #(
         if (rst_r) begin
             r_ptr_bin   <= 0;
             r_ptr_gray  <= 0;
-            data_out    <= 0;   // ⭐ FIX
-            data_valid  <= 0;   // ⭐ FIX
+            data_out    <= 0;   
+            data_valid  <= 0;   
         end else begin
             r_ptr_bin  <= r_ptr_bin_next;
             r_ptr_gray <= r_ptr_gray_next;
 
-            // ⭐ VALID SIGNAL GENERATION
+            // VALID SIGNAL GENERATION
             if (rd_en && !empty) begin
                 data_out   <= mem[r_ptr_bin[ADDR_WIDTH-1:0]];
                 data_valid <= 1;
