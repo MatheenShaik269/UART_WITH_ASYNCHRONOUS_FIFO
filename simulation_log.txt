@@ -1,0 +1,17 @@
+=========== UART TEST ===========
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'uart_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 11154.562 ; gain = 0.000 ; free physical = 233 ; free virtual = 2643
+run 50ms
+
+=========== FINAL REPORT ===========
+TEST1: PASS
+TEST2: PASS
+TEST3: PASS
+TEST4: PASS
+TEST5: PASS
+TEST6: PASS
+
+>>>> ALL TESTS PASSED <<<<
+$finish called at time : 12188010 ns : File "/home/rgukt123/Desktop/Main Folder/ECE/PROJECTS/UART_FIFO7/uart_fifo7/uart_fifo7.srcs/sim_1/new/uart_top_tb.v" Line 287
+
