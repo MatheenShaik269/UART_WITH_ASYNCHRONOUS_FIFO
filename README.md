@@ -56,6 +56,8 @@ Serial RX → uart_rx → async_fifo → User Read
 ```
 
 📤 UART Transmitter (uart_tx)
+```text
+
  1.Frame format:
     -> Start bit (0)
     -> 8 data bits (LSB first)
@@ -65,9 +67,14 @@ Serial RX → uart_rx → async_fifo → User Read
  3.Controlled by baud_tick
  4.tx_busy indicates transmission in progress
 
+```
+
+
  ---
 
 📥 UART Receiver (uart_rx)
+```text
+
  1.Key Techniques:
     -> 🔁 16x oversampling
     -> 🧠 3-point majority voting
@@ -80,20 +87,27 @@ Serial RX → uart_rx → async_fifo → User Read
 3.Error Outputs:
     -> ❗ parity_error
     -> 🚫 framing_error
+```
 
 ---
 
 
 📦 Asynchronous FIFO
 
+
+
 Used to buffer received data before user reads.
 Features:
+```text
+
+
       1.Dual clock domain support
       2.Gray code pointer synchronization
       3.Two-stage synchronizers
       4.Full & Empty detection
       5.data_valid signal for read confirmation
 
+```
 
 ---
 
@@ -101,11 +115,18 @@ Features:
 ⏱️ Baud Generator (baud_gen)
 
 Generates:
+```text
+
       1.baud_tick → TX timing
       2.baud_16x_tick → RX sampling
+```
 Parameters:
+
+```text
+
       1.CLK_FREQ  = 50_000_000
       2.BAUD_RATE = 9600
+```
 
 ---
 
@@ -113,6 +134,7 @@ Parameters:
 🧪 Testbench Description (uart_top_tb)
 
 The testbench validates UART and FIFO functionality using multiple real-world scenarios.
+```text
 
 ✔ Test Cases Covered
       1.Loopback Test
@@ -133,6 +155,7 @@ The testbench validates UART and FIFO functionality using multiple real-world sc
      6.Framing Error Test
             -> Invalid stop bit
             -> Checks framing_error
+```
 
 ---
 
@@ -190,6 +213,8 @@ uart_fifo_project/
 
 
 🚀 How to Run
+```text
+
        -> Open project in Xilinx Vivado
        -> Add all .v files
        -> Set uart_top_tb as top module
@@ -197,15 +222,18 @@ uart_fifo_project/
        -> Observe:
              1. Waveforms
              2. Console output
+```
 ---
 
 
 🎯 Applications
+```text
        1. UART communication systems
        2. Embedded systems
        3. FPGA-based serial interfaces
        4. Data buffering systems
        5. Multi-clock domain communication
+```
 
 ---
 
