@@ -180,7 +180,7 @@ module uart_top_tb;
 
         rx_driver = parity; #(BIT_PERIOD);
 
-        // ❌ WRONG STOP BIT
+        //  WRONG STOP BIT
         rx_driver = 0; #(BIT_PERIOD);
 
         // back to idle
